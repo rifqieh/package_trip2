@@ -92,7 +92,7 @@ class HotelPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Continue to Hotels',
+                'Continue to Payment',
                 style: whiteTextStyle.copyWith(
                   fontSize: 16,
                   fontWeight: semiBold,
