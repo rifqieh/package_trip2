@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:package_trip/theme.dart';
-import 'package:package_trip/widgets/trip_option.dart';
+import 'package:package_trip/widgets/hotel_option.dart';
 
-class TripPage extends StatelessWidget {
-  const TripPage({Key? key}) : super(key: key);
+class HotelPage extends StatelessWidget {
+  const HotelPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,13 +21,13 @@ class TripPage extends StatelessWidget {
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(
-                    'assets/icon_trip.png',
+                    'assets/icon_hotel.png',
                   ),
                 ),
               ),
             ),
             Text(
-              'Trip',
+              'Hotels',
               style: whiteTextStyle.copyWith(
                 fontSize: 24,
                 fontWeight: medium,
@@ -42,7 +42,7 @@ class TripPage extends StatelessWidget {
       return Container(
         margin: EdgeInsets.only(top: 30),
         child: Text(
-          'Whom You are Planning\nTo Travel With?',
+          'Select the hotel you\nwant to stay in',
           style: whiteTextStyle.copyWith(
             fontSize: 24,
             fontWeight: medium,
@@ -54,22 +54,21 @@ class TripPage extends StatelessWidget {
     Widget buildOptions() {
       return Column(
         children: [
-          TripOption(
-            title: 'Solo Trip',
-            subtitle: 'Suitable for you need a calm situation',
-          ),
-          TripOption(
-            title: 'Family Trip',
-            subtitle: 'Suitable for Make Perfect Memory',
+          HotelOption(
+            title: 'Standout Hotel',
+            location: 'Jakarta, Indonesia',
+            imageUrl: 'assets/image_hotel1.png',
+            price: 500,
+            rating: 5,
             isSelected: true,
           ),
-          TripOption(
-            title: 'Couples Trip',
-            subtitle: 'Suitable for spending time with loved ones',
-          ),
-          TripOption(
-            title: 'Company Trip',
-            subtitle: 'Suitable for refreshing your office mind',
+          HotelOption(
+            title: 'Twins Hotel',
+            location: 'Bandung, Indonesia',
+            imageUrl: 'assets/image_hotel2.png',
+            price: 375,
+            rating: 4,
+            isSelected: false,
           ),
         ],
       );
@@ -79,7 +78,7 @@ class TripPage extends StatelessWidget {
       return Container(
         height: 55,
         width: double.infinity,
-        margin: EdgeInsets.only(bottom: defaultMargin),
+        margin: EdgeInsets.only(top: 40, bottom: defaultMargin),
         child: TextButton(
           onPressed: () {},
           style: TextButton.styleFrom(
@@ -111,20 +110,16 @@ class TripPage extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: kBackgroundColor,
-      body: Padding(
+      body: ListView(
         padding: EdgeInsets.symmetric(
           horizontal: defaultMargin,
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            buildHeader(),
-            buildTitle(),
-            buildOptions(),
-            Spacer(),
-            buildButton(),
-          ],
-        ),
+        children: [
+          buildHeader(),
+          buildTitle(),
+          buildOptions(),
+          buildButton(),
+        ],
       ),
     );
   }
